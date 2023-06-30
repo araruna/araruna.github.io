@@ -1,16 +1,53 @@
 # The URL the site will be built for
 base_url = "https://dev.araruna.me"
 
+title = "Exercise for the Reader"
+description = "Correct me if I'm wrong (seriously!)"
+
+theme = "devblog"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 
+minify_html = true
+
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
+
+generate_feed = true
+
+taxonomies = [
+  # High-level subject / topic of the content
+  { name = "categories", feed = true, paginated_by = 15 },
+  # Interesting highlights that are mentioned in the content
+  { name = "tags", paginated_by = 30 },
+  # When a series of pages compose a single unit
+  { name = "series", feed = true, paginated_by = 15 },
+  # Tecnologies, assets, libraries, resources, etc. that are used in the content
+  { name = "tech", feed = true }
+]
 
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "css"
+highlight_themes_css = [
+  { theme = "OneHalfLight", filename = "style/syntax-theme-light.css" },
+  { theme = "OneHalfDark", filename = "style/syntax-theme-dark.css" }
+]
+
+render_emoji = true
+smart_punctuation = true
+
+external_links_target_blank = true
+
+[link_checker]
+external_level = "warn"
+
+[search]
+include_description = true
 
 [extra]
+my_name = "Arthur Araruna"
 # Put all your custom variables here
