@@ -1,0 +1,15 @@
+{% import "macros/style.html" as style %}
+{% import "macros/img.html" as img %}
+
+{% block styles %}
+  {{ style::fomantic_ui(components=[ "menu" ]) }}
+{% endblock styles %}
+
+<header id="site_header">
+  <nav class="ui menu">
+    <div class="header item">
+      {% set logo_path = config.extra.header.logo %}
+      <img src="{{ img::src(path=logo_path) }}" srcset="{{ img::srcset(path=logo_path, styles=[ "logo-header" ]) }}" />
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,16 @@
+name = "Dev Blog"
+description = "A simple blog customized for featuring code."
+license = "LGPL-3.0-or-later"
+min_version = "0.17.2"
+
+[author]
+name = "Arthur Araruna"
+homepage = "https://dev.araruna.me"
+
+[extra]
+my_name = "John Doe"
+
+favicon = ""
+site_logo = ""
+
+header = { logo = "" }

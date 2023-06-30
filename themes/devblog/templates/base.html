@@ -1,0 +1,71 @@
+{% import "macros/style.html" as style %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+
+<head>
+
+  {# set favicon = resize_image(path=config.extra.favicon, format="png", width=32, height=32) #}
+  {# <link rel="shortcut icon" href="{{ favicon.url }}" type="image/png"> #}
+  {# <link rel="icon" href="{{ favicon.url }}" type="image/png"> #}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta charset="utf-8">
+
+  {% block head %}
+
+    {% block styles %}
+    {{ style::fomantic_ui(components=[ "site", "reset" ]) }}
+    
+    <style type="text/css">
+      {% block css_rules %}
+        html, body {
+          font-size: initial;
+        }
+      {% endblock css_rules %}
+    </style>
+    {% endblock styles %}
+
+    {% block scripts %}
+      <script type="application/javascript">
+      {% block js_content %}
+      {% endblock js_content %}
+      </script>
+    {% endblock scripts %}
+
+    {% block title %}
+      <title>{% if section and section.title -%} {{ section.title }} {%- else %} {{ config.extra.my_name }} {%- endif %} | {{ config.title }}</title>
+    {% endblock title %}
+
+  {% endblock head %}
+</head>
+
+<body class="ui fluid container">
+  {% block site_header %}
+    {% include "partials/site_header.html" %}
+  {% endblock site_header %}
+
+  <main>
+    {% block page_title %}
+    {% endblock page_title %}
+    
+    {% block page_content %}
+      <section>
+        {% if section %}
+          {{ section.content | safe }}
+        {% elif page %}
+          {{ page.content | safe }}
+        {% endif %}
+      </section>
+    {% endblock page_content %}
+  </main>
+
+  {% block page_footer %}
+    {# include "partials/footer.html" #}
+  {% endblock page_footer %}
+
+  {% block after_page_footer %}
+  {% endblock after_page_footer %}
+
+</body>
+</html>

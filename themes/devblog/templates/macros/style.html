@@ -1,0 +1,11 @@
+{% macro fomantic_ui(components) %}
+  {% for comp in components | unique %}
+    {% set res = "/fomantic-ui/components/" ~ comp ~ ".min.css" %}
+    {% set hash = get_hash(path=res, sha_type=384, base_64=true) %}
+    <link rel="stylesheet" href="{{ res }}" integrity="sha384-{{ hash | safe }}" />
+  {% else %}
+    {% set res = "/fomantic-ui/semantic.min.css" %}
+    {% set hash = get_hash(path=res, sha_type=384, base_64=true) %}
+    <link rel="stylesheet" href="{{ res }}" integrity="sha384-{{ hash | safe }}" />
+  {% endfor %}
+{% endmacro %}
