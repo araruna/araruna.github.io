@@ -15,15 +15,20 @@
   {% block head %}
 
     {% block styles %}
-    {{ style::fomantic_ui(components=[ "site", "reset" ]) }}
+      {% block styles_init %}
+        {% set fomantic_comps = [] %}
+      {% endblock styles_init %}
+      
+      {% set fomantic_comps = [ "site", "reset" ] | concat(with=fomantic_comps) %}
+      {{ style::fomantic_ui(components=fomantic_comps) }}
     
-    <style type="text/css">
-      {% block css_rules %}
-        html, body {
-          font-size: initial;
-        }
-      {% endblock css_rules %}
-    </style>
+      <style type="text/css">
+        {% block css_rules %}
+          html, body {
+            font-size: initial;
+          }
+        {% endblock css_rules %}
+      </style>
     {% endblock styles %}
 
     {% block scripts %}
