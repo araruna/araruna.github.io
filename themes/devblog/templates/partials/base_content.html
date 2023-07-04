@@ -1,0 +1,7 @@
+<section class="ui container">
+  {% if section %}
+    {{ section.content | safe }}
+  {% elif page %}
+    {{ page.content | safe }}
+  {% endif %}
+</section>
