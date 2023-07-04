@@ -2,14 +2,32 @@
 {% import "macros/img.html" as img %}
 
 {% block styles %}
-  {{ style::fomantic_ui(components=[ "menu" ]) }}
+  {{ style::fomantic_ui(components=[ "button", "container", "icon", "input", "item", "menu" ]) }}
 {% endblock styles %}
 
+{#
 <header id="site_header">
   <nav class="ui menu">
     <div class="header item">
       {% set logo_path = config.extra.header.logo %}
       <img src="{{ img::src(path=logo_path) }}" srcset="{{ img::srcset(path=logo_path, styles=[ "logo-header" ]) }}" />
+    </div>
+  </nav>
+</header>
+#}
+<header class="ui container">
+  <nav class="ui stackable secondary menu">
+    <ul class="menu">
+      {% if config.extra.logo %}
+        <img src="" {% if config.extra.logo.alt -%} alt="{{ config.extra.logo.alt }}" {%- endif %} />
+      {% endif %}
+      <li class="header item"><a title="Homepage" href="/">Home</a></li>
+    </ul>
+    <div class="right item">
+      <form class="ui icon input" name="search">
+        <input type="text" type="search" id="site_search" placeholder="Search..." />
+        <i class="search link icon" title="Click to search"></i>
+      </form>
     </div>
   </nav>
 </header>
