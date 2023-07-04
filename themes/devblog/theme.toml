@@ -13,4 +13,4 @@ my_name = "John Doe"
 favicon = ""
 site_logo = ""
 
-header = { logo = "" }
+header = { logo_path = "" }

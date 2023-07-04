@@ -15,19 +15,26 @@
   </nav>
 </header>
 #}
-<header class="ui container">
-  <nav class="ui stackable secondary menu">
-    <ul class="menu">
-      {% if config.extra.logo %}
-        <img src="" {% if config.extra.logo.alt -%} alt="{{ config.extra.logo.alt }}" {%- endif %} />
+<header>
+  <nav>
+    <ul class="ui stackable secondary container menu">
+      <li class="header item">
+        {% if config.extra.header.logo_path %}
+          <img src="" {% if config.extra.header.logo_alt -%} alt="{{ config.extra.header.logo_alt }}" {%- endif %} />
+        {% endif %}
+        <a title="Homepage" href="/">Home</a>
+      </li>
+      {% if config.generate_feed %}
+        <li class="item"><a href="/feeds" title="Feeds for the site contents or categories">Feeds</a></li>
       {% endif %}
-      <li class="header item"><a title="Homepage" href="/">Home</a></li>
+      {% if config.build_search_index %}
+        <li class="right item">
+          <form class="ui icon input" name="search">
+            <input type="text" type="search" id="site_search" placeholder="Search..." />
+            <i class="search link icon" title="Click to search"></i>
+          </form>
+        </li>
+      {% endif %}
     </ul>
-    <div class="right item">
-      <form class="ui icon input" name="search">
-        <input type="text" type="search" id="site_search" placeholder="Search..." />
-        <i class="search link icon" title="Click to search"></i>
-      </form>
-    </div>
   </nav>
 </header>
