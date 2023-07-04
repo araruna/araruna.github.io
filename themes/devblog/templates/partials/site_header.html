@@ -3,6 +3,7 @@
 
 {% block styles %}
   {{ style::fomantic_ui(components=[ "button", "container", "icon", "input", "item", "menu" ]) }}
+  {{ style::load_css(path="/style/global.css") }}
 {% endblock styles %}
 
 {#
