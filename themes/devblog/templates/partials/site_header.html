@@ -25,6 +25,10 @@
         {% endif %}
         <a title="Homepage" href="/">Home</a>
       </li>
+      {% for subsec in section.subsections %}
+        {% set subsec = get_section(path=subsec) %}
+        <li class="item"><a href="{{ subsec.permalink }}">{{ subsec.title | safe }}</a></li>
+      {% endfor %}
       {% if config.build_search_index %}
         <li class="right item">
           <form class="ui icon input" name="search">
