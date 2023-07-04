@@ -50,20 +50,22 @@
     {% include "partials/site_header.html" %}
   {% endblock site_header %}
 
-  <main>
-    {% block page_title %}
-    {% endblock page_title %}
+  {% block main %}
+    <main>
+      {% block page_title %}
+      {% endblock page_title %}
     
-    {% block page_content %}
-      <section>
-        {% if section %}
-          {{ section.content | safe }}
-        {% elif page %}
-          {{ page.content | safe }}
-        {% endif %}
-      </section>
-    {% endblock page_content %}
-  </main>
+      {% block page_content %}
+        <section>
+          {% if section %}
+            {{ section.content | safe }}
+          {% elif page %}
+            {{ page.content | safe }}
+          {% endif %}
+        </section>
+      {% endblock page_content %}
+    </main>
+  {% endblock main %}
 
   {% block page_footer %}
     {# include "partials/footer.html" #}
