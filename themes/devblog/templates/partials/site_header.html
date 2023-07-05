@@ -42,24 +42,12 @@
         {# TODO: Put language choice dropdown #}
         <li class="item">Languages</li>
       {% endif %}
-      <li class="item">
-        <i class="sun icon"></i>
-        <div class="ui toggle checkbox">
-          {# FIXME: The checkbox does not show up... #}
-          {# TODO: Use CSS-only toggle switch #}
-          <input type="checkbox" name="light_dark" />
-        </div>
-        <i class="moon icon"></i>
+      <li class="toggle item">
+        <i class="sun fitted icon"></i>
+        <input type="checkbox" id="color_toggle" name="light_dark" />
+        <label for="color_toggle" title="Toggle between light and dark mode">Dark mode?</label>
+        <i class="moon fitted icon"></i>
       </li>
-      {#
-      * NOTE: Other option, but might need JS to work correctly...
-      <li class="item">
-        <div class="ui compact icon buttons">
-          <button class="ui active yellow button"><i class="sun icon"></i></button>
-          <button class="ui blue button"><i class="moon icon"></i></button>
-        </div>
-      </li>
-      #}
     </ul>
   </nav>
 </header>
