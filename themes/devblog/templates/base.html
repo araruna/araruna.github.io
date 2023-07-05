@@ -15,6 +15,21 @@
   <meta name="generator" content="DevBlog theme" />
 
   {% block head %}
+    {% block meta %}
+      {% for data in config.extra.meta %}
+        {% set name = data.name %}
+        {% set content = data.content %}
+
+        {% if data.use_config %}
+          {% set content = config[name] %}
+        {% endif %}
+        
+        <meta name="{{ name }}" content="{{ content }}"/>
+      {% endfor %}
+    {% endblock meta %}
+
+    {% block link %}
+    {% endblock link %}
 
     {% block styles %}
       {% block styles_init %}
