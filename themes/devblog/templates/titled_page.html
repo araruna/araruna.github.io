@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% import "macros/nav.html" as nav %}
+
+{% block styles_init %}
+  {{ super() }}
+  {% set fomantic_comps = [ "breadcrumb", "header", "icon" ] %}
+{% endblock styles_init %}
+
+{% block page_header %}
+  <header class="ui relaxed text container">
+    <nav>
+      {{ nav::breadcrumbs(entity=section) }}
+    </nav>
+    <h1 class="compact">{{ section.title }}</h1>
+  </header>
+{% endblock page_header %}
