@@ -2,7 +2,12 @@
 
 {% block styles_init %}
   {{ super() }}
-  {# Uncomment next line to edit the var to be used by the parent template #}
-  {# set fomantic_comps = [ "image" ] #}
+  {% set fomantic_comps = [ "segment" ] %}
 {% endblock styles_init %}
 
+{% block page_content %}
+  <section class="ui text segment container">
+    <h1 class="ui header">{{ config.title }}</h1>
+    {{ section.content | safe }}
+  </section>
+{% endblock page_content %}
