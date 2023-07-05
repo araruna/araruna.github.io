@@ -1,3 +1,15 @@
 ul.ui.menu {
   padding-left: 0 !important;
 }
+
+ol.ui.breadcrumb {
+  padding-left: 0 !important;
+}
+
+header > nav + h1.compact {
+  margin-top: 0 !important;
+}
+
+header.relaxed {
+  margin-bottom: 1em;
+}
