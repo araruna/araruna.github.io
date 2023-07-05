@@ -25,7 +25,8 @@
         {% endif %}
         <a title="Homepage" href="/">Home</a>
       </li>
-      {% for subsec in section.subsections %}
+      {% set site = get_section(path="_index.md") %}
+      {% for subsec in site.subsections %}
         {% set subsec = get_section(path=subsec) %}
         <li class="item"><a href="{{ subsec.permalink }}">{{ subsec.title | safe }}</a></li>
       {% endfor %}
@@ -50,6 +51,15 @@
         </div>
         <i class="moon icon"></i>
       </li>
+      {#
+      * NOTE: Other option, but might need JS to work correctly...
+      <li class="item">
+        <div class="ui compact icon buttons">
+          <button class="ui active yellow button"><i class="sun icon"></i></button>
+          <button class="ui blue button"><i class="moon icon"></i></button>
+        </div>
+      </li>
+      #}
     </ul>
   </nav>
 </header>
