@@ -1,10 +1,10 @@
 {% import "macros/style.html" as style %}
 {% import "macros/img.html" as img %}
 
-{% block styles %}
-  {{ style::fomantic_ui(components=[ "button", "container", "icon", "input", "item", "menu" ]) }}
-  {{ style::load_css(path="/style/global.css") }}
-{% endblock styles %}
+{#
+  * FIXME: All Fomantic-UI components used here must be listed in the pages including this.
+  * ==> [ "button", "container", "icon", "input", "item", "menu" ]
+#}
 
 {#
 <header id="site_header">
