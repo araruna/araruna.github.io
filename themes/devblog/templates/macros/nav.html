@@ -1,0 +1,15 @@
+{% macro breadcrumbs(entity) %}
+  <ol class="ui mini breadcrumb">
+  {% for sec in entity.ancestors %}
+    {% set section = get_section(path=sec) %}
+    <li class="section">
+      <i class="right chevron icon divider"></i>
+      <a href="{{ section.permalink }}">{{ section.title | default(value="Home") | truncate(length=20) | safe }}</a>
+    </li>
+  {% endfor %}
+    <li class="active section">
+      <i class="right arrow icon divider"></i>
+      <span>{{ entity.title | default(value="Main") | truncate(length=20) | safe }}</span>
+    </li>
+  </ol>
+{% endmacro %}
