@@ -51,3 +51,12 @@ include_description = true
 [extra]
 my_name = "Arthur Araruna"
 # Put all your custom variables here
+
+meta = [
+  { name = "author", content = "Arthur Araruna" },
+  { name = "description", content = "Personal page and blog for Arthur Araruna. Here you can see content related to Programming, Computer Science, Research and Academia, and other random personal stuff." }
+]
+
+link = [
+  { rel = "icon", href = "/favicon.ico", type = "image/x-icon" }
+]
