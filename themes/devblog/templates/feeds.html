@@ -1,0 +1,16 @@
+{% extends "titled_page.html" %}
+
+{% block page_content %}
+  <section class="ui text container">
+    {{ section.content | safe }}
+    
+    <section>
+      {% set level = section.extra.feeds.first_header_level | int(default=1) %}
+      <h{{ level }}>Everything</h{{level}}>
+      <ul>
+        <li><a href="{{ get_url(path=config.feed_filename) }}">All of the content <i class="rss small icon"></i></a></li>
+      </ul>
+    </section>
+    {# TODO: Include feeds for each part of the site that has one #}
+  </section>
+{% endblock page_content %}
