@@ -37,6 +37,19 @@
           </form>
         </li>
       {% endif %}
+      {% if config.languages and config.languages | length > 0 %}
+        {# TODO: Put language choice dropdown #}
+        <li class="item">Languages</li>
+      {% endif %}
+      <li class="item">
+        <i class="sun icon"></i>
+        <div class="ui toggle checkbox">
+          {# FIXME: The checkbox does not show up... #}
+          {# TODO: Use CSS-only toggle switch #}
+          <input type="checkbox" name="light_dark" />
+        </div>
+        <i class="moon icon"></i>
+      </li>
     </ul>
   </nav>
 </header>
