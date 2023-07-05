@@ -14,3 +14,16 @@ favicon = ""
 site_logo = ""
 
 header = { logo_path = "" }
+
+# Index page's header metadata
+
+meta = [
+  { name = "author", content = "Zola - DevBlog Theme" },
+  { name = "description", use_config = true },
+  { name = "keywords", content = "" },
+  { name = "referrer", content = "no-referrer" }
+]
+
+link = [
+  { rel = "icon", href = "/favicon.ico", type = "image/x-icon" }
+]
