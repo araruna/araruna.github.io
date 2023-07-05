@@ -15,7 +15,7 @@
   <meta name="generator" content="DevBlog theme" />
 
   {% block head %}
-    {% block meta %}
+    {% block metas %}
       {% for data in config.extra.meta %}
         {% set name = data.name %}
         {% set content = data.content %}
@@ -26,21 +26,22 @@
         
         <meta name="{{ name }}" content="{{ content }}"/>
       {% endfor %}
-    {% endblock meta %}
+    {% endblock metas %}
 
-    {% block link %}
-    {% endblock link %}
-
-    {% block styles %}
+    {% block links %}
       {% block styles_init %}
         {% set fomantic_comps = [] %}
       {% endblock styles_init %}
       
-      {% set fomantic_comps = [ "button", "checkbox", "container", "icon", "input", "item", "menu", "site", "reset", "text" ] | concat(with=fomantic_comps) %}
-      {{ style::fomantic_ui(components=fomantic_comps) }}
-      {{ style::load_css(path="/style/global.css") }}
-      {{ style::load_css(path="/style/toggle.css") }}
-    
+      {% block stylesheets %}
+        {% set fomantic_comps = [ "button", "checkbox", "container", "icon", "input", "item", "menu", "site", "reset", "text" ] | concat(with=fomantic_comps) %}
+        {{ style::fomantic_ui(components=fomantic_comps) }}
+        {{ style::load_css(path="/style/global.css") }}
+        {{ style::load_css(path="/style/toggle.css") }}
+      {% endblock stylesheets %}
+    {% endblock links %}
+
+    {% block styles %}
       <style type="text/css">
         {% block css_rules %}
         {% endblock css_rules %}
