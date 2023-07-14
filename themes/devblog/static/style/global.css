@@ -13,3 +13,13 @@ header > nav + h1.compact {
 header.relaxed {
   margin-bottom: 1em;
 }
+
+.ui.header > .sub.header + h1,
+.ui.header > .sub.header + h2,
+.ui.header > .sub.header + h3,
+.ui.header > .sub.header + h4,
+.ui.header > .sub.header + h5,
+.ui.header > .sub.header + h6 {
+  margin-top: 0.3em;
+}
+
