@@ -1,3 +1,7 @@
+{% macro pico_css() %}
+  {{ self::load_css(path="/style/pico.classless.min.css") }}
+{% endmacro %}
+
 {% macro load_css(path) %}
   {% set hash = get_hash(path=path, sha_type=384, base64=true) %}
   <link rel="stylesheet" href="{{ path }}" integrity="sha384-{{ hash | safe }}" />
