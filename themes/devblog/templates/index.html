@@ -10,45 +10,45 @@
 {% endblock stylesheets %}
 
 {% block page_content %}
-  <section class="ui text title container">
-    <h1 class="ui header">{{ config.title }}</h1>
+  <section>
+    <h1>{{ config.title }}</h1>
     {{ section.content | safe }}
   </section>
-  <section class="ui text container items">
-    <h2 class="ui left aligned horizontal section divider">
-      <i class="file alternate outline icon"></i>
+  <section>
+    <h2>
+      <i></i>
       Latest blog posts
     </h2>
     {% set blog = get_section(path=config.extra.sections.blog ~ "/_index.md") %}
     {% if blog and blog.pages | length > 0 %}
       {# for article in blog.pages #}
       {% for article in range(end=5) %}
-        <div class="item">
-        <article class="content">
-          <header class="header">
+        <div>
+        <article>
+          <header>
             <h3><a>Title</a></h3>
           </header>
-          <div class="meta"><time datetime="1970-01-01T00:00Z">when</time></div>
+          <div><time datetime="1970-01-01T00:00Z">when</time></div>
           {# TODO: Consider if displaying image(s) featured in the post. #}
-          <div class="description">
+          <div>
             <p>Content summary&hellip;</p>
-            <a class="ui primary compact right floated right labeled icon button">Read post<i class="right arrow icon"></i></a>
+            <a>Read post<i></i></a>
           </div>
-          <footer class="extra">
+          <footer>
             tags, categories, &hellip;
           </footer>
         </article>
         </div>
         {% if not loop.last %}
-          <hr class="ui section divider" />
+          <hr />
         {% endif %}
       {% endfor %}
-      <div class="ui left aligned horizontal section divider">
+      <div>
       <a>See all posts</a></div>
     {% else %}
-      <div class="ui padded center aligned placeholder segment">
-        <header class="ui icon header">
-          <i class="frown outline icon"></i>
+      <div>
+        <header>
+          <i></i>
           No posts yet
         </header>
         <p>Sorry... Maybe check back later?</p>
