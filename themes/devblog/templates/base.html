@@ -29,13 +29,7 @@
     {% endblock metas %}
 
     {% block links %}
-      {% block styles_init %}
-        {% set fomantic_comps = [] %}
-      {% endblock styles_init %}
-      
       {% block stylesheets %}
-        {% set fomantic_comps = [ "button", "checkbox", "container", "icon", "input", "item", "menu", "site", "reset", "text" ] | concat(with=fomantic_comps) %}
-        {{ style::fomantic_ui(components=fomantic_comps) }}
         {{ style::load_css(path="/style/global.css") }}
         {{ style::load_css(path="/style/toggle.css") }}
       {% endblock stylesheets %}
