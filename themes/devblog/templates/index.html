@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% import "macros/post.html" as posts %}
+
 {% block styles_init %}
   {{ super() }}
 {% endblock styles_init %}
@@ -16,39 +18,25 @@
   </section>
   <section>
     <h2>
-      <i></i>
       Latest blog posts
     </h2>
     {% set blog = get_section(path=config.extra.sections.blog ~ "/_index.md") %}
     {% if blog and blog.pages | length > 0 %}
-      {# for article in blog.pages #}
-      {% for article in range(end=5) %}
-        <div>
-        <article>
-          <header>
-            <h3><a>Title</a></h3>
-          </header>
-          <div><time datetime="1970-01-01T00:00Z">when</time></div>
-          {# TODO: Consider if displaying image(s) featured in the post. #}
-          <div>
-            <p>Content summary&hellip;</p>
-            <a>Read post<i></i></a>
-          </div>
-          <footer>
-            tags, categories, &hellip;
-          </footer>
-        </article>
-        </div>
+      {# for article in range(end=5) #}
+      {% for article in blog.pages %}
+        {% set url = get_url(path=article.path) %}
+        {% set tags = article.taxonomies["tags"] | default(value=[]) %}
+        {% set categories = article.taxonomies["categories"] | default(value=[]) %}
+        {{ posts::show_post_card(date=article.date, title=article.title, summary=article.summary, url=url, tags=tags, categories=categories)}}
         {% if not loop.last %}
           <hr />
         {% endif %}
       {% endfor %}
       <div>
-      <a>See all posts</a></div>
+      <a href="/blog">See all posts</a></div>
     {% else %}
       <div>
         <header>
-          <i></i>
           No posts yet
         </header>
         <p>Sorry... Maybe check back later?</p>

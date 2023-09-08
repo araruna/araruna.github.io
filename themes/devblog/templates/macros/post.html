@@ -1,0 +1,21 @@
+{% macro show_post_card(date, title, summary, url, tags, categories) %}
+  <article>
+    <header>
+      <h3><a>{{ title }}</a></h3>
+      <time datetime="{{ date }}">{{ date | date(format="%B %e, %Y") }}.</time>
+    </header>
+    {# TODO: Consider if displaying image(s) featured in the post. #}
+    <div>
+      {{ summary | default(value="_no summary yet_") | markdown | safe }}
+      <a href="{{ url }}">Read post<i></i></a>
+    </div>
+    <footer>
+      <div>
+        {% for tag in tags %}{{ tag }}{% else %}<em>no tags</em>{% endfor %}
+      </div>
+      <div>
+        {% for cat in categories %}{{ cat }}{% else %}<em>no categories</em>{% endfor %}
+      </div>
+    </footer>
+  </article>
+{% endmacro %}
