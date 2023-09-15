@@ -30,8 +30,10 @@
 
     {% block links %}
       {% block stylesheets %}
-        {{ style::pico_css() }}
+        {# style::pico_css() #}
+        {{ style::load_css(path="/style/webfont/aleo.css") }}
         {{ style::load_css(path="/style/global.css") }}
+        {{ style::load_css(path="/style/menubar.css") }}
         {{ style::load_css(path="/style/toggle.css") }}
       {% endblock stylesheets %}
     {% endblock links %}

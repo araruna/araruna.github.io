@@ -1,53 +1,32 @@
 {% import "macros/style.html" as style %}
 {% import "macros/img.html" as img %}
 
-{#
-  * FIXME: All Fomantic-UI components used here must be listed in the pages including this.
-  * ==> [ "button", "container", "icon", "input", "item", "menu" ]
-#}
-
-{#
-<header id="site_header">
-  <nav class="ui menu">
-    <div class="header item">
-      {% set logo_path = config.extra.header.logo %}
-      <img src="{{ img::src(path=logo_path) }}" srcset="{{ img::srcset(path=logo_path, styles=[ "logo-header" ]) }}" />
-    </div>
-  </nav>
-</header>
-#}
 <header>
   <nav>
-    <ul class="ui stackable secondary container menu">
-      <li class="header item">
-        {% if config.extra.header.logo_path %}
-          <img src="" {% if config.extra.header.logo_alt -%} alt="{{ config.extra.header.logo_alt }}" {%- endif %} />
-        {% endif %}
-        <a title="Homepage" href="/">Home</a>
-      </li>
+    <div class="links">
+      {% if config.extra.header.logo_path %}
+        <img src="" {% if config.extra.header.logo_alt -%} alt="{{ config.extra.header.logo_alt }}" {%- endif %} />
+      {% endif %}
+      <a title="Homepage" href="/">Home</a>
       {% set site = get_section(path="_index.md") %}
       {% for subsec in site.subsections %}
         {% set subsec = get_section(path=subsec) %}
-        <li class="item"><a href="{{ subsec.permalink }}">{{ subsec.title | safe }}</a></li>
+        <a href="{{ subsec.permalink }}">{{ subsec.title | safe }}</a>
       {% endfor %}
+    </div>
       {% if config.build_search_index %}
-        <li class="right item">
-          <form class="ui icon input" name="search">
-            <input type="text" type="search" id="site_search" placeholder="Search..." />
-            <i class="search link icon" title="Click to search"></i>
-          </form>
-        </li>
+        <form name="search" class="search">
+          <input type="text" type="search" id="site_search" placeholder="Search..." />
+          <i title="Click to search"></i>
+        </form>
       {% endif %}
       {% if config.languages and config.languages | length > 0 %}
         {# TODO: Put language choice dropdown #}
-        <li class="item">Languages</li>
+        <div>Languages</div>
       {% endif %}
-      <li class="toggle item">
-        <i class="sun fitted icon"></i>
+      <label class="color-mode" for="color_toggle" title="Toggle between light and dark mode">
         <input type="checkbox" id="color_toggle" name="light_dark" />
-        <label for="color_toggle" title="Toggle between light and dark mode">Dark mode?</label>
-        <i class="moon fitted icon"></i>
-      </li>
-    </ul>
+        Dark mode?
+      </label>
   </nav>
 </header>
