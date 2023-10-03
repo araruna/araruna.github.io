@@ -4,17 +4,23 @@
 
 header#site_header {
   display: grid;
-  grid-template-columns: 3fr 20ch auto;
+  grid-template-columns: 3fr 25ch auto;
 }
 
 /* ! TODO: Make items closer to the left limit of the content space. */
 #site_header menu {
+  font-family: 'Aleo';
+
   display: flex;
   flex-direction: row;
   gap: 1.5em;
 
   font-weight: bold;
   font-size: calc(1em * var(--size-ratio-600));
+}
+
+#site_header search input[type="search"] {
+  width: 100%;
 }
 
 #site_header menu>li {
