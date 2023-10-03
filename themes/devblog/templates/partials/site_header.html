@@ -1,32 +1,38 @@
 {% import "macros/style.html" as style %}
 {% import "macros/img.html" as img %}
 
-<header>
-  <nav>
-    <div class="links">
-      {% if config.extra.header.logo_path %}
-        <img src="" {% if config.extra.header.logo_alt -%} alt="{{ config.extra.header.logo_alt }}" {%- endif %} />
-      {% endif %}
-      <a title="Homepage" href="/">Home</a>
-      {% set site = get_section(path="_index.md") %}
-      {% for subsec in site.subsections %}
-        {% set subsec = get_section(path=subsec) %}
-        <a href="{{ subsec.permalink }}">{{ subsec.title | safe }}</a>
-      {% endfor %}
-    </div>
-      {% if config.build_search_index %}
-        <form name="search" class="search">
-          <input type="text" type="search" id="site_search" placeholder="Search..." />
-          <i title="Click to search"></i>
-        </form>
-      {% endif %}
-      {% if config.languages and config.languages | length > 0 %}
-        {# TODO: Put language choice dropdown #}
-        <div>Languages</div>
-      {% endif %}
-      <label class="color-mode" for="color_toggle" title="Toggle between light and dark mode">
-        <input type="checkbox" id="color_toggle" name="light_dark" />
-        Dark mode?
-      </label>
-  </nav>
-</header>
+<nav>
+    {% if config.extra.header.logo_path %}
+      <img src="" {% if config.extra.header.logo_alt -%} alt="{{ config.extra.header.logo_alt }}" {%- endif %} />
+    {% endif %}
+  <menu class="links">
+    <li><a title="Homepage" href="/">Home</a></li>
+    {% set site = get_section(path="_index.md") %}
+    {% for subsec in site.subsections %}
+      {% set subsec = get_section(path=subsec) %}
+      <li><a href="{{ subsec.permalink }}">{{ subsec.title | safe }}</a></li>
+    {% endfor %}
+    {% for page in site.pages %}
+      <li><a href="{{ page.permalink }}">{{ page.title | safe }}</a></li>
+    {% endfor %}
+  </menu>
+</nav>
+{% if config.build_search_index %}
+<search>
+  <form name="search" class="search">
+    <input type="search" id="site_search" placeholder="Search on the site..." />
+    <i title="Click to search"></i>
+  </form>
+</search>
+{% endif %}
+{% if config.languages and config.languages | length > 0 %}
+  {# TODO: Put language choice dropdown #}
+  <div>Languages (TODO)</div>
+{% endif %}
+{# ! FIXME: The toggle is not in the tab order. #}
+<div class="toggle">
+  <input type="checkbox" id="color_toggle" name="light_dark" tabindex="0" />
+  <label class="color-mode" for="color_toggle" title="Toggle between light and dark mode">
+    Dark mode?
+  </label>
+</div>

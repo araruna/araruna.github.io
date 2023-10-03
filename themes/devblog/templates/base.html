@@ -3,6 +3,7 @@
 <html lang="{{ lang }}">
 
 <head>
+  <meta charset="utf-8">
 
   {# set favicon = resize_image(path=config.extra.favicon, format="png", width=32, height=32) #}
   {# <link rel="shortcut icon" href="{{ favicon.url }}" type="image/png"> #}
@@ -10,7 +11,6 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta charset="utf-8">
   <meta name="generator" content="Zola" />
   <meta name="generator" content="DevBlog theme" />
 
@@ -30,9 +30,11 @@
 
     {% block links %}
       {% block stylesheets %}
-        {# style::pico_css() #}
         {{ style::load_css(path="/style/webfont/aleo.css") }}
+
+        {{ style::load_css(path="/style/reset.css") }}
         {{ style::load_css(path="/style/global.css") }}
+        {{ style::load_css(path="/style/site.css") }}
         {{ style::load_css(path="/style/menubar.css") }}
         {{ style::load_css(path="/style/toggle.css") }}
       {% endblock stylesheets %}
@@ -60,27 +62,31 @@
 </head>
 
 <body>
-  {% block site_header %}
-    {% include "partials/site_header.html" %}
-  {% endblock site_header %}
+  <header id="site_header">
+    {% block site_header %}
+      {% include "partials/site_header.html" %}
+    {% endblock site_header %}
+  </header>
 
-  {% block main %}
-    <main>
+  <main id="site_main">
+    {% block main %}
       {% block page_header %}
       {% endblock page_header %}
     
       {% block page_content %}
         {% include "partials/base_content.html" %}
       {% endblock page_content %}
-    </main>
-  {% endblock main %}
+    {% endblock main %}
+  </main>
 
-  {% block page_footer %}
-    {# include "partials/footer.html" #}
-  {% endblock page_footer %}
+  <footer id="site_footer">
+    {% block page_footer %}
+      {% include "partials/site_footer.html" %}
+    {% endblock page_footer %}
+  </footer>
 
-  {% block after_page_footer %}
-  {% endblock after_page_footer %}
+  {% block after_site_footer %}
+  {% endblock after_site_footer %}
 
 </body>
 </html>

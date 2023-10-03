@@ -8,10 +8,25 @@
   --size-ratio-700: calc(var(--size-ratio-600) * var(--font-ratio));
   --size-ratio-800: calc(var(--size-ratio-700) * var(--font-ratio));
   --size-ratio-900: calc(var(--size-ratio-800) * var(--font-ratio));
+
+  --size-em-300: calc(1em * var(--size-ratio-400));
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Aleo";
+body {
+  font-family: 'Lora';
+  max-width: 100ch;
+  margin: 15px auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Aleo';
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
 }
 
 h1 {
@@ -37,33 +52,3 @@ h5 {
 h6 {
   font-size: calc(1em * var(--size-ratio-400));
 }
-
-nav {
-  font-face: 'Aleo';
-}
-
-ul.ui.menu {
-  padding-left: 0 !important;
-}
-
-ol.ui.breadcrumb {
-  padding-left: 0 !important;
-}
-
-header > nav + h1.compact {
-  margin-top: 0 !important;
-}
-
-header.relaxed {
-  margin-bottom: 1em;
-}
-
-.ui.header > .sub.header + h1,
-.ui.header > .sub.header + h2,
-.ui.header > .sub.header + h3,
-.ui.header > .sub.header + h4,
-.ui.header > .sub.header + h5,
-.ui.header > .sub.header + h6 {
-  margin-top: 0.3em;
-}
-

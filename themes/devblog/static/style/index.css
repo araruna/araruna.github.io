@@ -1,4 +1,18 @@
-.ui.title.container {
-  margin-top: 1.6em;
-  margin-bottom: 2.5em;
+article .post-title {
+  margin-block: 0 0.4ex;
+}
+
+article {
+  margin-bottom: 4ex;
+  padding: 10px 15px;
+  border: 1px lightgrey solid;
+  border-radius: 5px;
+}
+
+article time {
+  font-size: calc(1em * var(--size-ratio-400));
+}
+
+article>.post-summary {
+  margin-block: 3ex 2ex;
 }

@@ -12,11 +12,11 @@
 {% endblock stylesheets %}
 
 {% block page_content %}
-  <section>
+  <section id="site_title">
     <h1>{{ config.title }}</h1>
     {{ section.content | safe }}
   </section>
-  <section>
+  <section id="posts">
     <h2>
       Latest blog posts
     </h2>
@@ -27,7 +27,7 @@
         {% set url = get_url(path=article.path) %}
         {% set tags = article.taxonomies["tags"] | default(value=[]) %}
         {% set categories = article.taxonomies["categories"] | default(value=[]) %}
-        {{ posts::show_post_card(date=article.date, title=article.title, summary=article.summary, url=url, tags=tags, categories=categories)}}
+        {{ posts::show_post_card(date=article.date, title=article.title, summary=article.description, url=url, tags=tags, categories=categories)}}
         {% if not loop.last %}
           <hr />
         {% endif %}

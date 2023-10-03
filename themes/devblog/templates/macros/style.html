@@ -3,6 +3,5 @@
 {% endmacro %}
 
 {% macro load_css(path) %}
-  {% set hash = get_hash(path=path, sha_type=384, base64=true) %}
-  <link rel="stylesheet" href="{{ path }}" integrity="sha384-{{ hash | safe }}" />
+  <link rel="stylesheet" href="{{ path }}" />
 {% endmacro %}
