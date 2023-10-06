@@ -1,0 +1,11 @@
+body > header > nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+body > header .links > * {
+  padding: 0 1em;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://dev.araruna.me/</loc>
+    </url>
+    <url>
+        <loc>https://dev.araruna.me/about-site/</loc>
+    </url>
+    <url>
+        <loc>https://dev.araruna.me/blog/</loc>
+    </url>
+    <url>
+        <loc>https://dev.araruna.me/categories/</loc>
+    </url>
+    <url>
+        <loc>https://dev.araruna.me/feeds/</loc>
+    </url>
+    <url>
+        <loc>https://dev.araruna.me/series/</loc>
+    </url>
+    <url>
+        <loc>https://dev.araruna.me/tags/</loc>
+    </url>
+    <url>
+        <loc>https://dev.araruna.me/tech/</loc>
+    </url>
+</urlset>

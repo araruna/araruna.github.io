@@ -1,0 +1,60 @@
+.toggle {
+  --area-height: 1.5em;
+  --area-width: calc(2 * var(--area-height));
+  --area-fit: min(var(--area-width), var(--area-height)) ;
+  --area-border-radius: calc(var(--area-fit) / 2);
+  --handle-offset: 3px;
+  --handle-reduction: calc(2 * var(--handle-offset));
+  --handle-size: calc(var(--area-fit) - var(--handle-reduction));
+
+  display: flex;
+  align-content: space-between;
+  isolation: isolate;
+}
+
+.toggle > input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+  position: absolute;
+  top: -100%;
+  left: -100%;
+}
+
+.toggle > input[type=checkbox] + label {
+	cursor: pointer;
+  /* * IMPORTANT: cannot set `font-size: 0` or else the `em`s will be all zeroes */
+	line-height: 0;
+  color: transparent;
+  overflow: hidden;
+  margin: auto 0.5em auto;
+	width: var(--area-width);
+	height: var(--area-height);
+	background-color: #87cefa; /* lightskyblue */
+	display: block;
+	border-radius: var(--area-border-radius);
+	position: relative;
+  transition: background-color 150ms linear;
+}
+
+.toggle > input[type=checkbox]:checked + label {
+	background-color: #191970; /* midnightblue */
+}
+
+.toggle > input[type=checkbox] + label::after {
+	content: '';
+	position: absolute;
+	top: var(--handle-offset);
+	left: var(--handle-offset);
+	width: var(--handle-size);
+	height: var(--handle-size);
+	background-color: #ffe900;
+	border-radius: calc(var(--handle-size) / 2);
+	transition: 150ms ease-out, background-color 150ms linear;
+}
+
+.toggle > input[type=checkbox]:checked + label::after {
+	transform: translateX(calc(var(--area-width) - 100% - 2 * var(--handle-offset)));
+	background-color: #f0f8ff;
+}
+
