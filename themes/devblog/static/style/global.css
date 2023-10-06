@@ -1,8 +1,12 @@
 @import 'webfont/aleo/aleo.css';
 @import 'webfont/lora/lora.css';
+@import 'webfont/jetbrains-mono/jetbrains-mono.css';
 
 :root {
   --font-ratio: 1.25;
+
+  --dimmed-fg-color: DarkSlateGrey;
+  --dimmed-bg-color: WhiteSmoke;
 
   --size-ratio-300: calc(var(--size-ratio-400) / var(--font-ratio));
   --size-ratio-400: calc(var(--size-ratio-500) / var(--font-ratio));
@@ -55,4 +59,22 @@ h5 {
 
 h6 {
   font-size: calc(1em * var(--size-ratio-400));
+}
+
+p,
+ul,
+ol {
+  margin-bottom: 0.75em;
+}
+
+main li {
+  list-style-position: outside;
+  margin-inline-start: 1em;
+}
+
+code {
+  font-family: 'JetBrains Mono';
+  font-size: 0.9em;
+  padding: 0.1em;
+  background: var(--dimmed-bg-color);
 }
