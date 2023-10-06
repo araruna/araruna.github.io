@@ -16,7 +16,7 @@ header#site_header {
   gap: 1.5em;
 
   font-weight: bold;
-  font-size: calc(1em * var(--size-ratio-600));
+  font-size: calc(1em * var(--size-ratio-500));
 }
 
 #site_header search input[type="search"] {
