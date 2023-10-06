@@ -1,3 +1,6 @@
+@import 'webfont/aleo/aleo.css';
+@import 'webfont/lora/lora.css';
+
 :root {
   --font-ratio: 1.3;
 
